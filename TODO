@@ -1,0 +1,17 @@
+-   Make output<basic_ostream> check for errors, and cause outf()
+    to return a negative value in that case, like printf() does.
+    I prefer exceptions for that kind of thing (which is how errors
+    in output to a std::string will get reported, most likely
+    std::bad_alloc), but they're not turned on by default, and
+    I shouldn't limit others who want to do inline error checking
+    rather than use exceptions.
+
+-   Add more tests:
+    strings
+    floating point
+    position specifiers (e.g. %1$*2$.*3$d)
+    lots of arguments (>20)
+    lots of types (>20) - may not be able to make that work
+
+-   Finish support for user-defined types, including finishing
+    operator<<(ostream&, format_spec&).
